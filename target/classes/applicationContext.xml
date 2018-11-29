@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+<context:component-scan base-package="com.javalec.guestbook"></context:component-scan>
+
+<!-- <bean id="before" class="com.javalec.common.BeforeAdvice"></bean>
+<aop:config>
+ <aop:pointcut id="allPointcut" 
+ expression="execution(* com.javalec.guestbook.controller..*Controller.*(..))" />
+ <aop:aspect ref="before">
+ <aop:before pointcut-ref="allPointcut" method="beforeLog" />
+ </aop:aspect>
+</aop:config>
+-->
+
+
+ <!-- <bean id="afterReturning" class="com.javalec.common.AfterReturningAdvice"></bean>
+<aop:config>
+ <aop:pointcut id="getPointcut" 
+ expression="execution(* com.javalec.guestbook.controller..*Controller.*(..))" />
+ <aop:aspect ref="afterReturning">
+ <aop:after-returning pointcut-ref="getPointcut" method="afterLog" />
+ </aop:aspect>
+</aop:config >
+-->
+ 
+<bean id="afterThrowing" class="com.javalec.common.AfterThrowingAdvice"></bean>
+<aop:config>
+ <aop:pointcut id="allPointcut" 
+ expression="execution(* com.javalec.guestbook.controller..*Controller.*(..))" />
+ <aop:aspect ref="afterThrowing">
+ <aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog" />
+ </aop:aspect>
+</aop:config>
+<!-- -->
+  
+<!--  <bean id="after" class="com.javalec.common.AfterAdvice"></bean> -->
+<!-- <aop:config> -->
+<!--  <aop:pointcut id="allPointcut"  -->
+<!--  expression="execution(* com.javalec.guestbook.controller..*Controller.*(..))" /> -->
+<!--  <aop:aspect ref="after"> -->
+<!--  <aop:after pointcut-ref="allPointcut" method="finallyLog" /> -->
+<!--  </aop:aspect> -->
+<!-- </aop:config> -->
+
+<!-- <bean id="around" class="com.javalec.common.AroundAdvice"></bean> -->
+<!-- <aop:config> -->
+<!--  <aop:pointcut id="allPointcut"  -->
+<!--  expression="execution(* com.javalec.guestbook.controller..*Controller.*(..))" /> -->
+<!--  <aop:aspect ref="around"> -->
+<!--  <aop:around pointcut-ref="allPointcut" method="aroungLog" /> -->
+<!--  </aop:aspect> -->
+<!-- </aop:config> -->
+
+</beans> 
